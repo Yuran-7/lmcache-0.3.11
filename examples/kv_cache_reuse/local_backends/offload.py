@@ -123,7 +123,7 @@ def main():
         model = "mistralai/Mistral-7B-Instruct-v0.2"
     else:
         lmcache_connector = "LMCacheConnectorV1"
-        model = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+        model = "/NV1/ykw/models/Meta-Llama-3.1-8B-Instruct/"
 
     setup_environment_variables(args.version, args.use_disk)
 

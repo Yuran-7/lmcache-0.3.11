@@ -827,7 +827,7 @@ class LMCacheEngine:
             # Transpose the keys into layer major format
             keys_layer_major = [list(row) for row in zip(*keys, strict=False)]
 
-            get_generator = self.storage_manager.layerwise_batched_get(
+            get_generator = self.storage_manager.layerwise_batched_get( # 核心函数1
                 keys_layer_major,
                 location=location,
             )
@@ -840,7 +840,7 @@ class LMCacheEngine:
                     SGLangLayerwiseGPUConnector,
                 ),
             )
-            mem_obj_consumer = self.gpu_connector.batched_to_gpu(starts, ends, **kwargs)
+            mem_obj_consumer = self.gpu_connector.batched_to_gpu(starts, ends, **kwargs)  # 核心函数2
             next(mem_obj_consumer)
 
             to_count_down = []
